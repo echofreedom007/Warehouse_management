@@ -1,0 +1,154 @@
+/* --------------------------------------------------------------
+# CSS for index page
+---------------------------------------------------------------*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+  --main-neon: #50c9c3;
+  --main-bg: #09203f;
+}
+
+body {
+  height: 100vh;
+  background: var(--main-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+
+h1 {
+  color: var(--main-neon);
+  margin-top: 50px;
+}
+
+.department {
+  display: flex;
+  justify-content: center;
+  user-select: none;
+  gap: 60px;
+  margin-top: 50px;
+}
+
+.department p a {
+  color: var(--main-neon);
+  padding: 20px 10px;
+  border: var(--main-neon) 8px solid;
+  border-radius: 8px;
+  font-size: 20px;
+  cursor: pointer;
+  text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
+  box-shadow: inset 0 0 0.5em 0 var(--main-neon), 0 0 0.5em 0 var(--main-neon);
+  position: relative;
+}
+
+.departmentButton::before {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  background: var(--main-neon);
+  top: 120%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  transform: perspective(1em) rotateX(40deg) scale(1, 0.35);
+  filter: blur(1em);
+
+  opacity: 0.7;
+}
+
+.departmentButton::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  box-shadow: 0 0 2em 0.5em var(--main-neon);
+  opacity: 0;
+  transition: opacity 100ms linear;
+  background: var(--main-neon);
+  z-index: -1;
+}
+
+.departmentButton:hover,
+.departmentButton:focus {
+  color: white;
+  text-shadow: none;
+}
+
+.departmentButton:hover::after {
+  opacity: 1;
+}
+
+.departmentButton:hover::before {
+  opacity: 1;
+}
+
+.welcome {
+  color: var(--main-neon);
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 70px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+footer {
+  padding: 10px;
+  font-size: 14px;
+  position: fixed;
+  bottom: 0;
+  z-index: 1;
+  color: rgba(255, 255, 255, 0.8);
+  font-style: italic;
+  /* margin-left: auto;
+  margin-right: 10px; */
+}
+
+img {
+  width: 10%;
+}
+
+/* medium screen */
+@media (max-width: 768px) {
+  .earth-image {
+    width: 20%;
+  }
+}
+
+/* small screen */
+@media (max-width: 450px) {
+  .department {
+    flex-direction: column;
+  }
+
+  .welcome,
+  .main-title {
+    text-align: center;
+  }
+
+  .department {
+    align-items: center;
+  }
+
+  .earth-image {
+    width: 30%;
+  }
+}
+
+/*-------------------------------------------------------------
+# END OF FILE
+--------------------------------------------------------------*/
